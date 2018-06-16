@@ -4,6 +4,7 @@ var rename = require('gulp-rename');
 var ejs = require("gulp-ejs");
 var merge = require('merge-stream');
 var sass = require('gulp-sass');
+var data = require('gulp-data');
 
 // cssに関するタスク
 gulp.task('build-css', function() {
@@ -18,6 +19,11 @@ gulp.task('build-css', function() {
 // htmlに関するタスク
 gulp.task('build-html', function(){
 	var buildMock = gulp.src('./_src/**/*.ejs')
+	.pipe(data(file => {
+	return {
+		'filename': file.path
+	}
+	}))
 	.pipe(ejs({
 		fileKind: 'mock'
 	}))
@@ -25,6 +31,11 @@ gulp.task('build-html', function(){
 	.pipe(gulp.dest('./_mock/'));
 	
 	var buildStg = gulp.src('./_src/**/*.ejs')
+	.pipe(data(file => {
+	return {
+		'filename': file.path
+	}
+	}))
 	.pipe(ejs({
 		fileKind: 'stg'
 	}))

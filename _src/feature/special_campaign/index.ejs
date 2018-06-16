@@ -1,5 +1,8 @@
 <%
-var fileKind = fileKind;
+var pos = filename.indexOf("_src");
+var layered = filename.slice(pos);
+var numLayered = layered.split("/").length - 1;
+var x = "../";
 %>
 <html>
 <head>
@@ -9,6 +12,8 @@ var fileKind = fileKind;
 </head>
 <body>
 <%= fileKind %>用のファイルです。
-</body>
 
+<% for (var i = 0; i < numLayered; i++) { %><%= x %><% } %>
+
+</body>
 </html>
