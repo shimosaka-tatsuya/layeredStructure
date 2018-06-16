@@ -47,7 +47,7 @@ gulp.task('build-html', function(){
 
 // ファイルの編集を監視
 gulp.task('watch', function() {
-    gulp.watch(['./_src/**/*.scss', './_src/**/*.ejs'], ['build-css', 'build-html'])
+    gulp.watch(['./_src/**/*.scss', './_src/**/*.css', './_src/**/*.ejs'], ['build-css', 'build-html'])
 });
 
 // デフォルトタスク

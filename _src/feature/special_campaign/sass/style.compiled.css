@@ -5,3 +5,7 @@ div {
 div a {
   line-height: 1;
 }
+
+div span {
+  display: block;
+}
