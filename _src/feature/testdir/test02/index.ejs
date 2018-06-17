@@ -1,0 +1,13 @@
+<%
+var sourcelayered = filename.indexOf("_src");
+var rootlayered = filename.slice(sourcelayered);
+var numLayered = rootlayered.split("/").length - 1;
+var pathLayered = "../";
+var setLayered = pathLayered.repeat(numLayered);
+var toSasslayered = "../" + rootlayered.slice("_src",-9) + "sass/style.compiled.css";
+%>
+<%- include(setLayered + "template/page_top", {toSasslayered:toSasslayered}) %>
+<% /*ここからコンテンツ*/ %>
+
+<% /*ここまでコンテンツ*/ %>
+<%- include(setLayered + "template/page_bottom") %>

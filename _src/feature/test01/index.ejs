@@ -6,10 +6,8 @@ var pathLayered = "../";
 var setLayered = pathLayered.repeat(numLayered);
 var toSasslayered = "../" + rootlayered.slice("_src",-9) + "sass/style.compiled.css";
 %>
-<%- include(setLayered+"template/page_top", {toSasslayered:toSasslayered}) %>
-
+<%- include(setLayered + "template/page_top", {toSasslayered:toSasslayered}) %>
 <% /*ここからコンテンツ*/ %>
 
 <% /*ここまでコンテンツ*/ %>
-
-<%- include(setLayered+"template/page_bottom") %>
+<%- include(setLayered + "template/page_bottom") %>
