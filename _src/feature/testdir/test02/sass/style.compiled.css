@@ -1,0 +1,15 @@
+div {
+  display: block;
+}
+
+div a {
+  line-height: 1;
+}
+
+div span {
+  display: block;
+}
+
+div p {
+  text-align: left;
+}

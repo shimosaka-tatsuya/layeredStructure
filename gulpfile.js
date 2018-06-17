@@ -21,7 +21,8 @@ gulp.task('build-html', function(){
 	var buildMock = gulp.src('./_src/**/*.ejs')
 	.pipe(data(file => {
 	return {
-		'filename': file.path
+		filename: file.path,
+		meta: require("./" + file.path.slice(file.path.indexOf("_src")).slice("_src",-9) + "json/meta.json")
 	}
 	}))
 	.pipe(ejs({
@@ -33,7 +34,8 @@ gulp.task('build-html', function(){
 	var buildStg = gulp.src('./_src/**/*.ejs')
 	.pipe(data(file => {
 	return {
-		'filename': file.path
+		filename: file.path,
+		meta: require("./" + file.path.slice(file.path.indexOf("_src")).slice("_src",-9) + "json/meta.json")
 	}
 	}))
 	.pipe(ejs({
