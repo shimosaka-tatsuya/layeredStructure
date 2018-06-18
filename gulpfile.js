@@ -22,7 +22,7 @@ gulp.task('build-html', function(){
 	.pipe(data(file => {
 	return {
 		filename: file.path,
-		meta: require("./" + file.path.slice(file.path.indexOf("_src")).slice("_src",-9) + "json/meta.json")
+		meta: require("./" + file.path.slice(file.path.indexOf("_src")).slice("_src",file.path.lastIndexOf("/") - file.path.lastIndexOf("") + 1) + "json/meta.json")
 	}
 	}))
 	.pipe(ejs({
@@ -35,7 +35,7 @@ gulp.task('build-html', function(){
 	.pipe(data(file => {
 	return {
 		filename: file.path,
-		meta: require("./" + file.path.slice(file.path.indexOf("_src")).slice("_src",-9) + "json/meta.json")
+		meta: require("./" + file.path.slice(file.path.indexOf("_src")).slice("_src",file.path.lastIndexOf("/") - file.path.lastIndexOf("") + 1) + "json/meta.json")
 	}
 	}))
 	.pipe(ejs({

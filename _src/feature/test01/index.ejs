@@ -1,10 +1,19 @@
 <%
+/* 相対パスを取得 */
 var sourcelayered = filename.indexOf("_src");
 var rootlayered = filename.slice(sourcelayered);
 var numLayered = rootlayered.split("/").length - 1;
 var pathLayered = "../";
 var setLayered = pathLayered.repeat(numLayered);
-var toSasslayered = "../" + rootlayered.slice("_src",-9) + "sass/style.compiled.css";
+
+/* このファイル名の文字数を取得 */
+var numLayeredAll = filename.lastIndexOf("");
+var numLayeredThisUnder = filename.lastIndexOf("/");
+var numThisFile = numLayeredThisUnder - numLayeredAll + 1;
+
+/* 取得した相対パスをcssの読み込みに利用 */
+var toSasslayered = "../" + rootlayered.slice("_src",numThisFile) + "sass/style.compiled.css";
+
 %>
 <%- include(setLayered + "template/page_top", {toSasslayered:toSasslayered}) %>
 <% /*ここからコンテンツ*/ %>
